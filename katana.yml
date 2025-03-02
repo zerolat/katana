@@ -1,0 +1,3 @@
+---
+- name: Running Katana
+  ansible.builtin.import_playbook: playbooks/katana.yml

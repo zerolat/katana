@@ -1,0 +1,47 @@
+#!/usr/sbin/nft -f
+# vim: set tabstop=4 shiftwidth=4 expandtab:
+
+flush ruleset
+
+table inet filter {
+    set TRUSTED_IPS {
+        type ipv4_addr
+        flags interval
+{% if firewall_config.trusted_range is defined and firewall_config.trusted_range | length > 0 %}
+        elements = { {{ firewall_config.trusted_range | join(', ') }} }
+{% endif %}
+    }
+
+    set TCP_PORTS {
+        type inet_service
+        elements = { {{ sshd_config.Port | default('22') }}{% if firewall_config.tcp_port_access is defined and firewall_config.tcp_port_access | length > 0 %}, {{ firewall_config.tcp_port_access | join(', ') }}{% endif %} }
+    }
+
+    set UDP_PORTS {
+        type inet_service
+{% if firewall_config.udp_port_access is defined and firewall_config.udp_port_access | length > 0 %}
+        elements = { {{ firewall_config.udp_port_access | join(', ') }} }
+{% endif %}
+    }
+
+    set NETWORK_ADAPTERS {
+        type ifname
+{% if firewall_config.network_adapter_access is defined and firewall_config.network_adapter_access | length > 0 %}
+        elements = { {{ firewall_config.network_adapter_access | join(', ') }} }
+{% endif %}
+    }
+
+    chain input {
+        type filter hook input priority filter; policy drop;
+
+        ct state vmap { established : accept, related : accept, invalid : drop }
+        ip saddr @TRUSTED_IPS accept
+        iifname @NETWORK_ADAPTERS accept
+        tcp dport @TCP_PORTS accept
+        udp dport @UDP_PORTS accept
+    }
+
+    chain forward {
+        type filter hook forward priority filter; policy drop;
+    }
+}
