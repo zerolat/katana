@@ -1,5 +1,5 @@
 ---
-## supported: nftables, iptables, none
+## supported: nftables, none
 firewall: none
 
 ## firewall configuration
