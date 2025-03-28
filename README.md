@@ -1,17 +1,17 @@
 # Katana
 
-**Extreme Network Optimization for Ultra-Low Latency ⚡**
+**Extreme Linux and Network Stack Optimization for Low Latency ⚡**
 
 ## Overview
-Katana is a high-performance network optimization automation tool designed to eliminate unnecessary delays and maximize throughput. By fine-tuning the Linux kernel, network stack, and scheduling mechanisms, Katana ensures the lowest possible latency for high-speed networking applications. Whether you're running a VPN, game server, or distributed system, Katana slices through bottlenecks with surgical precision.
+Katana is a high-performance network optimization automation tool engineered to minimize delays. By meticulously fine-tuning the Linux kernel, network stack, and scheduling mechanisms, Katana ensures the lowest possible latency for demanding high-speed networking applications. Ideal for VPNs, game servers, distributed systems, and any scenario requiring minimal network round trip time, Katana precisely cuts through performance bottlenecks.
 
 ## Key Features
-- **Kernel Optimization** – Tweaks critical kernel parameters to reduce processing overhead.
-- **Network Stack Optimization** – Streamlines packet flow for minimal latency.
-- **ToS & QoS Tuning** – Ensures priority handling of latency-sensitive traffic.
-- **qdisc Optimization** – Configures the best queuing discipline for ultra-fast packet processing.
-- **NIC Optimization** – Fine-tunes network interface settings for maximum performance.
-- **NAPI Optimization** – Enhances network interrupt handling to boost efficiency.
-- **Blazingly Fast Performance** – Designed to process packets at lightning speed with minimal overhead.
+- **Kernel Optimization:** Adjusts critical kernel parameters to significantly reduce processing overhead and improve responsiveness.
+- **Network Stack Tuning:** Streamlines the flow of network packets through the operating system for the lowest possible latency.
+- **Egress ToS Marking:** This allows for potential prioritization by intermediate network devices.
+- **QDisc Configuration:** Configures the optimal packet queuing discipline to facilitate ultra-fast and efficient packet processing.
+- **NIC Optimization:** Fine-tunes network interface card settings to achieve maximum hardware performance and reduce latency.
+- **NAPI Enhancement:** Improves network interrupt handling mechanisms, leading to increased efficiency and reduced CPU load.
+- **Blazingly Fast** – Designed to process packets at lightning speed with minimal overhead.
 
-Katana is built for those who demand absolute performance. Wield it, and take control of your network. 🚀
+Katana is the tool of choice for users who require absolute network performance and the lowest possible latency. Take command of your network and unleash its true potential with Katana. 🚀
