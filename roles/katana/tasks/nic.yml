@@ -5,7 +5,7 @@
     state: directory
     owner: root
     group: root
-    mode: '0755'
+    mode: 0755
 
 - name: Make NIC configuration script
   template:
@@ -29,4 +29,6 @@
     enabled: true
     state: started
     daemon_reload: true
+  async: 60
+  poll: 0
   ignore_errors: true
