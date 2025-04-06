@@ -3,13 +3,17 @@
   import_tasks: packages.yml
   tags: packages
 
-- name: Configure logging
-  import_tasks: logging.yml
-  tags: logging
+- name: Configure systemd services
+  import_tasks: systemd.yml
+  tags: systemd
 
 - name: Configure limits
   import_tasks: limits.yml
   tags: limits
+
+- name: Configure sshd
+  import_tasks: sshd.yml
+  tags: sshd
 
 - name: Configure network interfaces
   import_tasks: nic.yml
@@ -22,17 +26,13 @@
 
 - name: Configure nftables
   import_tasks: nftables.yml
-  tags: nftables
+  tags: firewall
   when: firewall == 'nftables'
-
-- name: Disable and stop unnecessary services
-  import_tasks: services.yml
-  tags: services
 
 - name: Apply sysctl settings
   import_tasks: sysctl.yml
   tags: sysctl
 
-- name: Configure Kernel
+- name: Configure kernel
   import_tasks: kernel.yml
   tags: kernel
