@@ -3,6 +3,10 @@
   import_tasks: packages.yml
   tags: packages
 
+- name: Confiugre DNS
+  import_tasks: dns.yml
+  tags: dns
+
 - name: Configure systemd services
   import_tasks: systemd.yml
   tags: systemd
@@ -29,7 +33,7 @@
   tags: firewall
   when: firewall == 'nftables'
 
-- name: Apply sysctl settings
+- name: Configure sysctl settings
   import_tasks: sysctl.yml
   tags: sysctl
 
