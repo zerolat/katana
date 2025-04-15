@@ -1,0 +1,21 @@
+---
+- name: Enable nftables
+  systemd:
+    name: nftables
+    enabled: true
+    state: started
+  ignore_errors: true
+
+- name: Disable nftables
+  systemd:
+    name: nftables
+    enabled: false
+    state: stopped
+  ignore_errors: true
+
+- name: Disable iptables
+  systemd:
+    name: iptables
+    enabled: false
+    state: stopped
+  ignore_errors: true

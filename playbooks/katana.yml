@@ -3,4 +3,13 @@
   strategy: free
   become: true
   roles:
-    - { role: ../roles/katana, tags: katana }
+    - { role: dns, tags: dns }
+    - { role: system, tags: system }
+    - { role: packages, tags: packages }
+    - { role: firewall, tags: firewall }
+    - { role: tc, tags: tc }
+    - { role: nic, tags: nic }
+    - { role: sshd, tags: sshd }
+    - { role: sysctl, tags: sysctl }
+    - { role: monitoring, tags: monitoring }
+    - { role: kernel, tags: kernel }

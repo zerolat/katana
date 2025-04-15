@@ -1,0 +1,5 @@
+---
+- name: Configure node exporter
+  import_tasks: setup.yml
+  tags: monitoring
+  when: node_exporter

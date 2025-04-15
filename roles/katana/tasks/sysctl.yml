@@ -1,8 +1,0 @@
----
-- name: Configure sysctl settings
-  template:
-    src: sysctl.conf.j2
-    dest: /etc/sysctl.conf
-
-- name: Reload sysctl
-  command: sysctl -e -p

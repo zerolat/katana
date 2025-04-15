@@ -1,0 +1,19 @@
+---
+## supported: nftables, none
+firewall: none
+
+## firewall configuration
+firewall_config:
+  network_adapter_access:
+    - lo
+  tcp_port_access:
+    - 80
+    - 443
+    - 8080
+  udp_port_access:
+    - 2080
+    - 3090
+    - 4090
+    - 5090
+  trusted_range:
+   - 192.168.100.10/32

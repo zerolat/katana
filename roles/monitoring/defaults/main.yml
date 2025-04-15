@@ -1,0 +1,4 @@
+---
+## prometheus node exporter
+node_exporter: false
+node_exporter_addr: ":9100"

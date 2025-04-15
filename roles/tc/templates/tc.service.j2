@@ -1,0 +1,10 @@
+[Unit]
+Description=Configure TC settings
+After=network.target
+
+[Service]
+ExecStart=/bin/bash {{ config_dir }}/tc.sh
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target

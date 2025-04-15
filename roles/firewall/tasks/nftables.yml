@@ -1,0 +1,19 @@
+---
+- name: Install nftables
+  apt:
+    update_cache: true
+    name: nftables
+    state: present
+
+- name: Make nftables configuration file
+  template:
+    src: nftables.conf.j2
+    dest: /etc/nftables.conf
+  tags: nftables
+  notify:
+    - Enable nftables
+
+- name: Restore nftables state
+  command: nft -f /etc/nftables.conf
+  ignore_errors: true
+  tags: nftables

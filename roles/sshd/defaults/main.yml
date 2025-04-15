@@ -1,0 +1,8 @@
+---
+sshd_config:
+  Port: "{{ ansible_port }}"
+  ListenAddress: "{{ ansible_host }}"
+  PermitRootLogin: without-password
+  PasswordAuthentication: "no"
+  AllowUsers: root
+  AllowGroups: root

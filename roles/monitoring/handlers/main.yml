@@ -1,0 +1,7 @@
+---
+- name: Restart node-exporter
+  systemd:
+    name: prometheus-node-exporter
+    enabled: true
+    state: restarted
+  ignore_errors: true

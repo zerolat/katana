@@ -1,0 +1,16 @@
+---
+- name: Install node exporter
+  apt:
+    update_cache: true
+    name: prometheus-node-exporter
+    state: present
+
+- name: Change node exporter addr
+  lineinfile:
+    path: /etc/default/prometheus-node-exporter
+    regexp: '^ARGS='
+    line: 'ARGS="--web.listen-address={{ node_exporter_addr }}"'
+    state: present
+  ignore_errors: true
+  notify:
+    - Restart node-exporter

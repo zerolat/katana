@@ -1,0 +1,11 @@
+---
+## package list for installation
+packages:
+- vim
+- bash-completion
+- curl
+- ca-certificates
+- net-tools
+- dnsutils
+- tcpdump
+- ethtool

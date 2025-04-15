@@ -1,0 +1,10 @@
+---
+- name: Disable the netfilter
+  import_tasks: netfilter.yml
+  tags: disable-netfilter
+  when: firewall == 'none'
+
+- name: Configure nftables
+  import_tasks: nftables.yml
+  tags: firewall
+  when: firewall == 'nftables'

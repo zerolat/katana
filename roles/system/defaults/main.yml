@@ -1,0 +1,9 @@
+---
+## configuration directory
+config_dir: /opt/katana
+
+## limits
+limit_nofile_hard: 1000000
+limit_nofile_soft: 1000000
+limit_nproc_hard: 10000
+limit_nproc_soft: 10000

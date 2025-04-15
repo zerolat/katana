@@ -1,0 +1,9 @@
+---
+- name: Install samurai kernel
+  import_tasks: samurai.yml
+  tags: samurai
+  when: samurai
+
+- name: Configure grub
+  import_tasks: grub.yml
+  tags: grub

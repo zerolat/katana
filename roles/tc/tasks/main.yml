@@ -1,0 +1,26 @@
+---
+- name: Make configuration directory
+  file:
+    path: "{{ config_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Make TC configuration script
+  template:
+    src: tc.sh.j2
+    dest: "{{ config_dir }}/tc.sh"
+    mode: 0744
+    owner: root
+    group: root
+
+- name: Make TC systemd service
+  template:
+    src: tc.service.j2
+    dest: /etc/systemd/system/tc-setup.service
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - Enable tc-setup

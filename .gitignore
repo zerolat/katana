@@ -1,7 +1,6 @@
 # Ansible inventory
 inventory/*
 !inventory/group_vars
-!inventory/inventory.ini
 
 # dotenv
 .env
