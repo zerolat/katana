@@ -1,0 +1,13 @@
+---
+- name: Map ansible_architecture to RT kernel arch
+  set_fact:
+    kernel_arch_map:
+      x86_64: amd64
+      aarch64: arm64
+    kernel_arch: "{{ kernel_arch_map[ansible_architecture] | default(ansible_architecture) }}"
+
+- name: Install real-time kernel
+  apt:
+    name: "linux-image-rt-{{ kernel_arch }}"
+    state: present
+    update_cache: true

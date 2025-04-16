@@ -1,6 +1,9 @@
 ---
-## samurai kernel
-## warning: not stable for all platforms! only(amd64, KVM)
-samurai: false
+## Warning: RT kernel only available on Debian. Don't use it on Ubuntu or anything else.
+## Warning: Samurai kernel is not stable for all platforms. Only works on amd64 + KVM.
+
+## Supported values: rt, samurai, default
+kernel: "default"
+
 samurai_version: 0.3.5
 samurai_kernel_version: 6.1.134

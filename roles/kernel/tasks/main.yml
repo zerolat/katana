@@ -1,8 +1,13 @@
 ---
+- name: Install real-time kernel
+  import_tasks: rt.yml
+  tags: rt-kernel
+  when: kernel == 'rt'
+
 - name: Install samurai kernel
   import_tasks: samurai.yml
-  tags: samurai
-  when: samurai
+  tags: samurai-kernel
+  when: kernel == 'samurai'
 
 - name: Configure grub
   import_tasks: grub.yml
