@@ -9,8 +9,13 @@ tcp_tos: "0x00"
 udp_tos: "0x00"
 
 ## qdisc configuration
-fq_codel: "fq_codel target 1000us interval 2000us noecn limit 2048 flows 1024 quantum 300"
-_txqueuelen: 64
+fq_codel_target: 1000us
+fq_codel_interval: 2000us
+fq_codel_limit: 2048
+fq_codel_flows: 1024
+fq_codel_quantum: 300
+
+txqueuelen: 64
 
 ## supported qdisc: noqueue, fq_codel
 qdisc: fq_codel

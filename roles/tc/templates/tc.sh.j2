@@ -1,12 +1,13 @@
 #!/bin/bash
 
 {% if qdisc == 'fq_codel' %}
-tc qdisc replace dev {{ ansible_default_ipv4.interface }} root {{ _fq_codel }}
+tc qdisc replace dev {{ ansible_default_ipv4.interface }} root target {{ fq_codel_target }} interval {{ fq_codel_interval }} limit {{ fq_codel_limit }} noecn quantum {{ fq_codel_quantum }}
+tc qdisc replace dev {{ ansible_default_ipv4.interface }} root {{ fq_codel_flows }}
 {% else %}
 tc qdisc replace dev {{ ansible_default_ipv4.interface }} root noqueue
 {% endif %}
 
-ip link set {{ ansible_default_ipv4.interface }} txqueuelen {{ _txqueuelen }}
+ip link set {{ ansible_default_ipv4.interface }} txqueuelen {{ txqueuelen }}
 
 {% if tos %}
 tc filter del dev {{ ansible_default_ipv4.interface }}
