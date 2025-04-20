@@ -5,5 +5,5 @@
 ## Supported values: rt, samurai, default
 kernel: "default"
 
-samurai_version: 0.3.5
+samurai_version: 0.4.1
 samurai_kernel_version: 6.1.134
